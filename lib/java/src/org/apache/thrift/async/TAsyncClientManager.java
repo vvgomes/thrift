@@ -84,7 +84,7 @@ public class TAsyncClientManager {
 
     public void finish() {
       running = false;
-      selector.wakeup();
+      selector.close();
     }
 
     public void run() {
