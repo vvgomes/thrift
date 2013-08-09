@@ -84,7 +84,9 @@ public class TAsyncClientManager {
 
     public void finish() {
       running = false;
-      selector.wakeup();
+      try { selector.close(); } catch(Exception e) { 
+        LOGGER.error("Vini/Dave screwed up!", e);
+      }
     }
 
     public void run() {
